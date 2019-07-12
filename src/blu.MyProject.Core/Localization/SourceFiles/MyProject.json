@@ -1,0 +1,15 @@
+﻿{
+  "culture": "en",
+  "texts": {
+    "HelloWorld": "Hello World!",
+    "ChangeLanguage": "Change language",
+    "HomePage": "HomePage",
+    "About": "About",
+    "Home_Description": "Welcome to MyProject...",
+    "About_Description": "This is a simple startup template to use ASP.NET Core with ABP framework.",
+    "PersonList": "Person List",
+    "PersonState_Open": "Open",
+    "PersonState_Completed": "Completed"
+      
+  }
+}

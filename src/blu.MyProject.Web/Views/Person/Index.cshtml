@@ -1,0 +1,22 @@
+﻿@model blu.MyProject.Web.Model.IndexViewModel
+
+@{
+    ViewBag.Title = L("PersonList");
+    ViewBag.ActiveMenu = "PersonList"; //Matches with the menu name in MyProjectNavigationProvider to highlight the menu item
+}
+
+<h2>@L("PersonList")</h2>
+
+<div class="row">
+    <div>
+        <ul class="list-group" id="TaskList">
+            @foreach (var person in Model.People)
+            {
+                <li class="list-group-item">
+                    <span class="pull-right label @Model.GetPersonLabel(person)">@L($"PersonState_{person.State}")</span>
+                    <h4 class="list-group-item-heading">@person.Name</h4>
+                </li>
+            }
+        </ul>
+    </div>
+</div>

@@ -11,4 +11,4 @@ using ASP.NET Core and EntityFramework Core.
 
 ## Notes
 
-Trying out CRUD/Repo design out ASP.NET Core.
+Trying out CRUD/Repo design in ASP.NET Core.

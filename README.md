@@ -9,8 +9,6 @@ using ASP.NET Core and EntityFramework Core.
 * .NET Core SDK
 * SQL Server
 
-## How To Run
+## Notes
 
-* Open solution in Visual Studio 2017
-* Set .Web project as Startup Project and build the project.
-* Run the application.
+Trying out CRUD/Repo design out ASP.NET Core.

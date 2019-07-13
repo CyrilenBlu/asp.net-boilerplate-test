@@ -13,5 +13,7 @@ namespace blu.MyProject
         Task<ListResultDto<PersonListDto>> GetAll(GetAllPeopleInput input);
 
         Task<ListResultDto<PersonListDto>> GetAll();
+
+       PersonListDto Add(PersonListDto person);
     }
 }

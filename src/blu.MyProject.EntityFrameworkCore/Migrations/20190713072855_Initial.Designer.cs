@@ -21,21 +21,21 @@ namespace blu.MyProject.Migrations
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
             modelBuilder.Entity("blu.MyProject.Domain.Person", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+            {
+                b.Property<int>("Id")
+                    .ValueGeneratedOnAdd()
+                    .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("Age");
+                b.Property<int>("Age");
 
-                    b.Property<string>("Name");
+                b.Property<string>("Name");
 
-                    b.Property<byte>("State");
+                b.Property<byte>("State");
 
-                    b.HasKey("Id");
+                b.HasKey("Id");
 
-                    b.ToTable("Person");
-                });
+                b.ToTable("Person");
+            });
 #pragma warning restore 612, 618
         }
     }

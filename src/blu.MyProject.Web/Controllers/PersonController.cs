@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using blu.MyProject.DTOModels;
 using blu.MyProject.Web.Model;
@@ -27,6 +28,13 @@ namespace blu.MyProject.Web.Controllers
         {
             var result = await _personService.GetAll();
             return Ok(result);
+        }
+
+        [Route("api/people")]
+        [HttpPost]
+        public ActionResult<PersonListDto> Add([FromBody] PersonListDto person)
+        {
+            return _personService.Add(person);
         }
     }
 }

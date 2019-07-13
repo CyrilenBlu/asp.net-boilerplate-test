@@ -2,6 +2,7 @@
 using Abp.Collections.Extensions;
 using Abp.Domain.Repositories;
 using Abp.Linq.Extensions;
+using AutoMapper;
 using blu.MyProject.Domain;
 using blu.MyProject.DTOModels;
 using Microsoft.EntityFrameworkCore;
@@ -19,6 +20,20 @@ namespace blu.MyProject.Services
         public PersonService(IRepository<Person> personRepository)
         {
             _personRepository = personRepository;
+        }
+
+        public PersonListDto Add(PersonListDto person)
+        {
+            var eperson = Mapper.Map<PersonListDto, Person>(person);
+
+            var created = _personRepository
+                .Insert(eperson);
+
+            Console.WriteLine(created.Name);
+
+            var dtoPerson = Mapper.Map<Person, PersonListDto>(created);
+
+            return dtoPerson;
         }
 
         public async Task<ListResultDto<PersonListDto>> GetAll(GetAllPeopleInput input)

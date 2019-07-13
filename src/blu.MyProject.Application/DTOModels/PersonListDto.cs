@@ -16,7 +16,6 @@ namespace blu.MyProject.DTOModels
 
         public PersonState State { get; set; }
 
-    
     }
 
     public class GetAllPeopleInput

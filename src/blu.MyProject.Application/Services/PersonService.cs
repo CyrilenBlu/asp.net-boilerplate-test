@@ -26,12 +26,17 @@ namespace blu.MyProject.Services
         {
             var eperson = Mapper.Map<PersonListDto, Person>(person);
 
-            var created = _personRepository
-                .Insert(eperson);
+            var createdId = _personRepository
+                .InsertAndGetId(eperson);
 
-            Console.WriteLine(created.Name);
+            var createdPerson = new Person()
+            {
+                Id = createdId,
+                Name = eperson.Name,
+                Age = eperson.Age
+            };
 
-            var dtoPerson = Mapper.Map<Person, PersonListDto>(created);
+            var dtoPerson = Mapper.Map<Person, PersonListDto>(createdPerson);
 
             return dtoPerson;
         }

@@ -15,5 +15,7 @@ namespace blu.MyProject
         Task<ListResultDto<PersonListDto>> GetAll();
 
        PersonListDto Add(PersonListDto person);
+
+        string Delete(int id);
     }
 }

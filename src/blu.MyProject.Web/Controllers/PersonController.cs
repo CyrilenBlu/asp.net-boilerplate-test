@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using blu.MyProject.DTOModels;
 using blu.MyProject.Web.Model;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http2.HPack;
 
 namespace blu.MyProject.Web.Controllers
 {
@@ -35,6 +36,13 @@ namespace blu.MyProject.Web.Controllers
         public ActionResult<PersonListDto> Add([FromBody] PersonListDto person)
         {
             return _personService.Add(person);
+        }
+
+        [Route("api/people")]
+        [HttpDelete]
+        public ActionResult<string> Delete([FromHeader] string id)
+        {
+            return _personService.Delete(Int32.Parse(id));
         }
     }
 }

@@ -1,13 +1,17 @@
 ﻿using Abp.Application.Services.Dto;
 using Abp.Collections.Extensions;
+using Abp.Domain.Entities;
 using Abp.Domain.Repositories;
 using Abp.Linq.Extensions;
 using AutoMapper;
 using blu.MyProject.Domain;
 using blu.MyProject.DTOModels;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Query.ExpressionVisitors.Internal;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -39,6 +43,19 @@ namespace blu.MyProject.Services
             var dtoPerson = Mapper.Map<Person, PersonListDto>(createdPerson);
 
             return dtoPerson;
+        }
+
+        public string Delete(int id)
+        {
+            
+            try {
+                var person = _personRepository.Get(id);
+                _personRepository.Delete(person);
+            } catch (EntityNotFoundException e)
+            {
+                return e.Message;
+            }
+            return "Successfully Deleted id: " + id;
         }
 
         public async Task<ListResultDto<PersonListDto>> GetAll(GetAllPeopleInput input)
